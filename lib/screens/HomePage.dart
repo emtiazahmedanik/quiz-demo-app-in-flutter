@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:quiz_app_demo/screens/HtmlPage.dart';
+import 'package:quiz_app_demo/widgets/RecentActivities.dart';
 import 'package:quiz_app_demo/widgets/categoriesWidget.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -11,6 +12,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.sizeOf(context).width;
+
 
     return Scaffold(
       appBar: AppBar(
@@ -118,7 +120,7 @@ class MyHomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                ),
+                ),//Background Image with blur
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Row(
@@ -158,10 +160,10 @@ class MyHomePage extends StatelessWidget {
             
                     ],
                   ),
-                ),
+                ),//Search Bar and Filter
                 Padding(padding:const EdgeInsets.symmetric(horizontal: 10),
                 child: Text('Categories',style: Theme.of(context).textTheme.headlineLarge,),
-                ),
+                ),//Category text
                 Padding(padding:const EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -178,74 +180,20 @@ class MyHomePage extends StatelessWidget {
                     Categories(imagePath: "assets/images/python_5968350.png", text: "Python"),
                   ],
                 ),
-                ),
+                ),//Category buttons
                 Padding(padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Text('Recent Activity',style: Theme.of(context).textTheme.headlineLarge,),
-                ),
+                ),//Recent Activity text
                 Padding(padding:const EdgeInsets.symmetric(horizontal: 10),
                 child: Column(
+                  spacing: 10,
                   children: [
-                    Container(
-                      height: 58,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.shade300,
-                            spreadRadius: 2,
-                            blurRadius: 8,
-                          )
-                        ]
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: SizedBox(
-                              child: Row(
-                                spacing: 10,
-                                crossAxisAlignment:CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-            
-                                      decoration: BoxDecoration(
-                                          color: Color.fromRGBO(171, 194, 227, 0.73),
-                                          borderRadius: BorderRadius.circular(5)
-                                      ),
-                                      height:34,
-                                      width: 56,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Image.asset('assets/images/html_1051277.png',fit: BoxFit.contain,),
-                                      )
-                                  ),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text('HTML',style: Theme.of(context).textTheme.headlineMedium,),
-                                      Text('30 Question',style: Theme.of(context).textTheme.bodySmall,)
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 10),
-                            child: CircleAvatar(
-                              child: Icon(Icons.add_call),
-                            ),
-                          )
-                        ],
-                      ),
-                    )
+                    RecentActivities(imagePath: 'assets/images/html_1051277.png', topic: "HTML", noOfQuestion: "30",totalQuestion:30,answeredQuestion:15,fillColor: Color.fromRGBO(253, 228, 228, 1),valueColor: Color.fromRGBO(248, 41, 41, 1),),
+                    RecentActivities(imagePath: 'assets/images/java-script_1199124.png', topic: "JavaScript", noOfQuestion: "30",totalQuestion:30,answeredQuestion:25,fillColor: Color.fromRGBO(254, 248, 220, 1),valueColor: Color.fromRGBO(218, 185, 44, 1),),
+                    RecentActivities(imagePath: 'assets/images/python_5968350.png', topic: "Python", noOfQuestion: "30",totalQuestion:30,answeredQuestion:4,fillColor: Color.fromRGBO(241, 223, 255, 1),valueColor: Color.fromRGBO(143, 4, 253, 1),),
                   ],
                 ),
-                )
+                ),//Recent Activity Contents
             
               ],
             ),

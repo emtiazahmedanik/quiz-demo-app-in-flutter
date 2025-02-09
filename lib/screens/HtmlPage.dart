@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app_demo/screens/ScorePage.dart';
 import 'package:quiz_app_demo/widgets/PreviousNextButton.dart';
 import 'package:quiz_app_demo/widgets/SelectAnswer.dart';
 import 'package:sizer/sizer.dart';
@@ -17,6 +18,14 @@ class HtmlPage extends StatelessWidget {
           ],
         ),
         centerTitle: true,
+        actions: [
+          IconButton(
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>ScorePage()));
+              },
+              icon: Icon(Icons.navigate_next)
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
