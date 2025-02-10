@@ -14,7 +14,7 @@ class PreviousNextButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(8)
         )
       ),
-        child: Text(text,style:Theme.of(context).textTheme.headlineLarge?.copyWith(color: Colors.white,fontWeight: FontWeight.w600),),
+        child: Text(text,style:Theme.of(context).textTheme.headlineLarge?.copyWith(color: Colors.white,fontWeight: FontWeight.w600,fontSize: 13),),
     );
   }
 }
