@@ -1,20 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:hive_ce/hive.dart';
+import 'package:quiz_app_demo/models/QuizQuestion.dart';
+import 'package:quiz_app_demo/retrive_question/HtmlQuestionRetrive.dart';
 import 'package:quiz_app_demo/screens/ScorePage.dart';
 import 'package:quiz_app_demo/widgets/PreviousNextButton.dart';
 import 'package:quiz_app_demo/widgets/SelectAnswer.dart';
 import 'package:sizer/sizer.dart';
 
-class HtmlPage extends StatelessWidget {
-  const HtmlPage({super.key});
+class QuestionPage extends StatelessWidget {
+  final String text;
+  final Object object;
+   List<dynamic> ?keys;
+   Box<QuizQuestion> ?box;
+   QuestionPage({super.key,required this.text,required this.object});
 
   @override
   Widget build(BuildContext context) {
+    if(object is HtmlQuestionRetrive){
+      keys = HtmlQuestionRetrive.keys;
+      box = HtmlQuestionRetrive.box;
+    }
     return Scaffold(
       appBar: AppBar(
         title: Column(
           children: [
-            Text('HTML',style: Theme.of(context).textTheme.headlineLarge,),
-            Text('30 Question',style:Theme.of(context).textTheme.headlineMedium ,)
+            Text(text,style: Theme.of(context).textTheme.headlineLarge,),
+            Text("${keys!.length} Question",style:Theme.of(context).textTheme.headlineMedium ,)
           ],
         ),
         centerTitle: true,
@@ -34,7 +45,7 @@ class HtmlPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Container(
-                height: 400,
+                height: 500,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   boxShadow: [
@@ -132,3 +143,5 @@ class HtmlPage extends StatelessWidget {
     );
   }
 }
+
+

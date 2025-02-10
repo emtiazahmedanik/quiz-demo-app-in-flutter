@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:hive_ce_flutter/adapters.dart';
+import 'package:quiz_app_demo/insert_question_in_db/HtmlQuestionInsert.dart';
 import 'package:quiz_app_demo/screens/HomePage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
-void main() {
+import 'package:hive_ce/hive.dart';
+
+import 'models/QuizQuestion.dart';
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(QuizQuestionAdapter());
+  await Hive.openBox<QuizQuestion>("htmlQuestion");
+  HtmlQuestionInsert.storeQuestions();
   runApp(const MyApp());
 }
 
