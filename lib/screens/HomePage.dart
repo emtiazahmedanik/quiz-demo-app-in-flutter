@@ -1,7 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:quiz_app_demo/screens/HtmlPage.dart';
+import 'package:quiz_app_demo/retrive_question/HtmlQuestionRetrive.dart';
+import 'package:quiz_app_demo/screens/QuestionPage.dart';
 import 'package:quiz_app_demo/widgets/RecentActivities.dart';
 import 'package:quiz_app_demo/widgets/categoriesWidget.dart';
 
@@ -170,7 +171,8 @@ class MyHomePage extends StatelessWidget {
                   children: [
                     InkWell(
                       onTap:(){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>HtmlPage()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>QuestionPage(text: "HTML",object: HtmlQuestionRetrive(),)));
+
                       },
                         child: Categories(imagePath: "assets/images/html_1051277.png", text: "HTML"),
                     ),
